@@ -29,6 +29,10 @@ class PetsController extends Controller
         ]);
         return "Pet atualizado com sucesso";
     }
+    public function show(){
+        $pets = Pet::all();
+        return view('welcome',['pets'=> $pets]);
+    }
 
 }
 

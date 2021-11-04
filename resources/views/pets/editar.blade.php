@@ -8,16 +8,16 @@
 </head>
 <body>
     @yield('content')
-        <form action="{{route('atualizar_livro', ['id'=>$livro->id])}}"method="post">
+        <form action="{{route('atualizar_pet', ['id'=>$pet->id])}}"method="post">
             @csrf
             <div><label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" value="{{$livro->nome}}"</div>
+                <input type="text" name="nome" id="nome" value="{{$pet->nome}}"</div>
             <div><label for="nome">Raca</label>
-                <input type="text" name="raca" id="raca" value="{{$livro->raca}}"</div>
+                <input type="text" name="raca" id="raca" value="{{$pet->raca}}"</div>
             <div><label for="custo">Dono</label>
-                <input type="text" name="dono" id="dono" value="{{$livro->dono}}"</div>
+                <input type="text" name="dono" id="dono" value="{{$pet->dono}}"</div>
             <div><label for="preco">Peso</label>
-                <input type="text" name="peso" id="peso" value="{{$livro->peso}}"</div>
+                <input type="text" name="peso" id="peso" value="{{$pet->peso}}"</div>
             <button type="submit">Salvar</button>
         </form>
 </body>

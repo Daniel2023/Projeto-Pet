@@ -24,29 +24,35 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
-   <body>
-       <div class="container-md">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Raca</th>
-            <th scope="col">Dono</th>
-            <th scope="col">Peso</th>
-          </tr>
-        </thead>
-    </body>
-            @foreach ( $pets as $pet )
-            <tr>
-                <th scope="row">{{$pet->id}}</th>
-                <td>{{$pets->nome}}</td>
-                <td>{{$pets->raca}}</td>
-                <td>{{$pets->dono}}</td>
+@extends('pets.pet')
+
+@section('content')
+    <h1 class="text-center">CRUD</h1> <hr>
+
+    <div class="text-center mt-3 mb-4">
+        <a href="{{url('pets/create')}}">
+        </a>
+    </div>
+
+    <div class="col-8 m-auto">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome do pet</th>
+                <th scope="col">Raca</th>
+                <th scope="col">Dono</th>
+                <th scope="col">peso</th>
+                <th scope="col">Action</th>
               </tr>
+            </thead>
+            <tbody>
 
-            @endforeach
 
 
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+          <button class="btn btn-success">Cadastrar</button>
+    </div>
+
+@endsection
