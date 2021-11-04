@@ -33,6 +33,16 @@ class PetsController extends Controller
         $pets = Pet::all();
         return view('welcome',['pets'=> $pets]);
     }
+    public function destroy($id) {
+        $pet = Pet::findOrFail($id);
+        $pet->delete();
+        return "Pet excluido com sucesso";
+    }
+
+    public function edit($id) {
+        $pet = Pet::findOrFail($id);
+        return view('pets.editar', ['pets'=> $pet]);
+    }
 
 }
 

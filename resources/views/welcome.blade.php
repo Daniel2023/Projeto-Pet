@@ -47,8 +47,13 @@
               </tr>
             </thead>
             <tbody>
+                @foreach( $pets as $pet)
+                <tr>
+                    <th scope="row">{{$pet->id}}</th>
+                    <td>{{$pet->nome}}</td>
+                    <td>{{$pet->raca}}</td>
 
-
+                @endforeach
 
             </tbody>
           </table>
