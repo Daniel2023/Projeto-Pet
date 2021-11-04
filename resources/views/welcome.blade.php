@@ -47,15 +47,40 @@
               </tr>
             </thead>
             <tbody>
-                @foreach( $pets as $pet)
+                @foreach($pets as $pet)
                 <tr>
                     <th scope="row">{{$pet->id}}</th>
                     <td>{{$pet->nome}}</td>
                     <td>{{$pet->raca}}</td>
-
+                    <td>{{$pet->dono}}</td>
+                    <td>{{$pet->peso}}</td>
+                    <td>{{$pet->Ação}}</td>
+                    <td><button type="button" id="id_update" onclick="ExibirUpdate('modal_update',{{$pet->id}})" class="btn btn-warning">
+                    <a href="{{ route('editar_pet', ['id'=> $pet->id])}}"
+                        style="text-decoration:none; color: inherit;">Editar</a></button></td>
+                    <td><button type="button" class="btn btn-danger">Excluir</a></button></td>
+                  </tr>
                 @endforeach
 
             </tbody>
+            <script>
+                 function ExibirUpdate(value, id){
+                    var display = document.getElementById(value).style.display;
+
+                    if(display == "none") {
+                        document.getElementById(value).style.display = "block";
+                        //document.getElementById(botao).value = "adicionar";
+                         $('#id_update').attr('value',id);
+                         GetId(id);
+                    } else {
+                        document.getElementById(value).style.display = "none";
+                        //document.getElementById(botao).style.background-color = "#dc3545";
+                        //document.getElementById("botao_open").value = "fechar";
+           }
+
+       }
+            </script>
+
           </table>
           <button class="btn btn-success">Cadastrar</button>
     </div>
