@@ -19,14 +19,26 @@ class PetsController extends Controller
         ]);
         return "Pet Salvo Com Sucesso";
     }
+
     public function update($id, Request $request){
-        $pet = Pet::findOrFail($id);
-        $pet->edit([
-            'nome' => $request->nome,
-            'raca' => $request->raca,
-            'dono' => $request->dono,
-            'peso' => $request->peso,
-        ]);
+        $pet = Pet::find($id);
+        //$pet->edit([
+            //'nome' => $request->nome,
+            //'raca' => $request->raca,
+            //'dono' => $request->dono,
+           // 'peso' => $request->peso,
+       // ]);
+
+      /* $this ($request->all(),[
+            'nome' => 'required',
+            'raca' => 'required',
+            'dono' => 'required',
+            'peso' => 'required',
+       ]);*/
+       $input = $request->all();
+       $pet->update($input);
+       //$pet->fill($input)->save();
+
         return "Pet atualizado com sucesso";
     }
     public function show(){
@@ -40,9 +52,14 @@ class PetsController extends Controller
         return "Pet excluido com sucesso";
     }
 
+    public function delete($id){
+        $pet = Pet::findOrFail($id);
+        return view('welcome', ['pet'=>$pet]);
+    }
+
     public function edit($id) {
         $pet = Pet::findOrFail($id);
-        return view('pets.editar', ['pets'=> $pet]);
+        return view('pets.editar',['pet'=>$pet]);
     }
 
 }

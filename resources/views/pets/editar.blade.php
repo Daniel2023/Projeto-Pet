@@ -7,7 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    @yield('content')
         <form action="{{route('atualizar_pet', ['id'=>$pet->id])}}"method="post">
             @csrf
             <div><label for="nome">Nome</label>
@@ -22,3 +21,5 @@
         </form>
 </body>
 </html>
+
+
