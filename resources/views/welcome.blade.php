@@ -41,7 +41,7 @@
                 <th scope="col">Nome(Pet)</th>
                 <th scope="col">Raça</th>
                 <th scope="col">Dono</th>
-                <th scope="col">Peso</th>
+                <th scope="col">Peso(KG)</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -99,7 +99,7 @@
                     <input type="text" class="form-control" name="nome" placeholder="Nome" aria-label="Nome">
                     </div>
                         <div class="col-sm-5">
-                        <input type="text" class="form-control" name="raca" placeholder="Raca" aria-label="Raca">
+                        <input type="text" class="form-control" name="raca" placeholder="Raça" aria-label="Raca">
                         </div>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" name="dono" placeholder="Dono" aria-label="Dono">

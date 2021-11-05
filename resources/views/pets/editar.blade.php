@@ -21,21 +21,21 @@
 
                 <div class="row">
                     <div class="col">
-            <div><label for="nome">Raca</label>
+            <div><label for="raca">Raça</label>
                 <input type="text" name="raca" id="raca" value="{{$pet->raca}}"</div>
             </div>
                     </div>
 
                     <div class="row">
                         <div class="col">
-            <div><label for="custo">Dono</label>
+            <div><label for="dono">Dono</label>
                 <input type="text" name="dono" id="dono" value="{{$pet->dono}}"</div>
             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
-            <div><label for="preco">Peso</label>
+            <div><label for="peso">Peso</label>
                 <input type="text" name="peso" id="peso" value="{{$pet->peso}}"</div>
             </div>
                             </div>

@@ -10,6 +10,7 @@ class PetsController extends Controller
     public function create(){
         return view('pets.create');
     }
+
     public function store(Request $request) {
         Pet::create([
             'nome'=>$request->nome,
@@ -21,26 +22,13 @@ class PetsController extends Controller
     }
 
     public function update($id, Request $request){
-        $pet = Pet::find($id);
-        //$pet->edit([
-            //'nome' => $request->nome,
-            //'raca' => $request->raca,
-            //'dono' => $request->dono,
-           // 'peso' => $request->peso,
-       // ]);
-
-      /* $this ($request->all(),[
-            'nome' => 'required',
-            'raca' => 'required',
-            'dono' => 'required',
-            'peso' => 'required',
-       ]);*/
+       $pet = Pet::find($id);
        $input = $request->all();
        $pet->update($input);
-       //$pet->fill($input)->save();
 
         return "Pet atualizado com sucesso";
     }
+
     public function show(){
         $pets = Pet::all();
         return view('welcome',['pets'=> $pets]);
