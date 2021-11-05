@@ -38,7 +38,7 @@
             <thead>
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Nome</th>
+                <th scope="col">Nome(Pet)</th>
                 <th scope="col">Raça</th>
                 <th scope="col">Dono</th>
                 <th scope="col">Peso</th>
@@ -67,12 +67,32 @@
                 @endforeach
             </tbody>
           </table>
-          <button type="button" id="botao_open" onclick="ExibirOpen('modal_open')" class="btn btn-primary">Adicionar</button>
+          <button type="button" id="botao_open" onclick="ExibirOpen('modal_open','modal_open_x')" class="btn btn-primary">Adicionar</button>
 
     </div>
-    <div class="container-sm">
-        <div class="col-sm-6">
-            <div id="modal_open" style="display: none;">
+
+    <div id="modal_open_x" class="container-sm"
+    style="
+    position: absolute;
+    top: 15%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 57%;
+    height: 63%;
+    background-color: #0000006b;
+    border: 1px solid #0000006b;
+    border-radius: 17px;
+    display:none;">
+
+        <div class="col-sm-6"
+        style="
+        height: 100%;">
+
+            <div id="modal_open" style="display: none; width: auto;border: 1px solid #f8f9fa;padding: 20px;position: absolute;top: 30%;right: 15px;align-items: center;left: 15px;background-color: #fff;text-align: center;">
+                <button style="float: left;" type="button" onclick="ExibirOpen('modal_open','modal_open_x')" class="btn btn-danger">Fechar</button>
+                <br>
+                <hr>
                 <form action="{{route('salvar_novo')}}" method="post" class="row g-3">
                     @csrf
                     <div class="col-sm-5">
@@ -92,71 +112,23 @@
             </div>
         </div>
     </div>
-
-    <div class="container-sm">
-        <div class="col-sm-6">
-
-    <div id="modal_update" style="display:none;">
-        @yield('content')
-        <form class="row g-3" action="{{route('atualizar_pet', ['id'=>$pet->id])}}">
-            @csrf
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="Nome" id="id_update" aria-label="Nome">
-            </div>
-
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="Nome" id="nome_update" aria-label="Nome">
-            </div>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="Raca" aria-label="Raca">
-            </div>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="Dono" aria-label="Dono">
-            </div>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" placeholder="Peso" aria-label="Peso">
-            </div>
-            <button type="button" class="btn btn-success">Atualizar</button>
-        </form>
-    </div>
-        </div>
-    </div>
     <script>
-        function ExibirOpen(value){
+        function ExibirOpen(value,x){
             var display = document.getElementById(value).style.display;
 
             if(display == "none") {
              document.getElementById(value).style.display = "block";
+             document.getElementById(x).style.display = "block";
              //document.getElementById(botao).value = "adicionar";
              //console.log(botao);
             } else {
              document.getElementById(value).style.display = "none";
+             document.getElementById(x).style.display = "none";
              //document.getElementById(botao).style.background-color = "#dc3545";
              document.getElementById("botao_open").value = "fechar";
             }
 
         }
-
-        function GetId(id){
-            return id;
-        }
-
-        function ExibirUpdate(value, id){
-            var display = document.getElementById(value).style.display;
-
-            if(display == "none") {
-             document.getElementById(value).style.display = "block";
-             //document.getElementById(botao).value = "adicionar";
-             $('#id_update').attr('value',id);
-             GetId(id);
-            } else {
-             document.getElementById(value).style.display = "none";
-             //document.getElementById(botao).style.background-color = "#dc3545";
-            //document.getElementById("botao_open").value = "fechar";
-            }
-
-        }
-
     </script>
 </html>
 

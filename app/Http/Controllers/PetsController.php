@@ -17,7 +17,7 @@ class PetsController extends Controller
             'dono'=>$request->dono,
             'peso'=>$request->peso,
         ]);
-        return "Pet Salvo Com Sucesso";
+        return back()->withInput();
     }
 
     public function update($id, Request $request){
@@ -49,7 +49,7 @@ class PetsController extends Controller
     public function destroy($id) {
         $pet = Pet::findOrFail($id);
         $pet->delete();
-        return "Pet excluido com sucesso";
+        return back()->withInput();
     }
 
     public function delete($id){
